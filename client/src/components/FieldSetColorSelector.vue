@@ -1,41 +1,49 @@
 <template>
-    <div class="highlight-blue-background flex-column radius margin">
-          <div class="centered fixed-height fixed-top-margin"> Field Set Color Assignments</div>
-            <div class="flex-row less-padding fixed-top-margin space-between">
-              <div class="flex-column less-padding space-between">
-                <ColorSelector :colors=props.color_array />
-                <ColorSelector :colors=props.color_array v-if="props.picked > 2"/>
-                <ColorSelector :colors=props.color_array v-if="props.picked > 4"/>
-                <ColorSelector :colors=props.color_array v-if="props.picked > 6"/>
-              </div>
-              <div class="flex-column less-padding space-between">
-                <ColorSelector :colors=props.color_array />
-                <ColorSelector :colors=props.color_array v-if="props.picked > 2"/>
-                <ColorSelector :colors=props.color_array v-if="props.picked > 4"/>
-                <ColorSelector :colors=props.color_array v-if="props.picked > 6"/>
-              </div>
-            </div>
+    <div class="blue-container">
+        <div class="text"> Field Set Color Assignments</div>
+
+        <div class="field-groups">
+            <ColorSelector :colors=props.color_array />
+            <ColorSelector :colors=props.color_array />
         </div>
+        <div class="field-groups">
+            <ColorSelector :colors=props.color_array v-if="props.numFields > 2" />
+            <ColorSelector :colors=props.color_array v-if="props.numFields > 2" />
+        </div>
+        <div class="field-groups">
+            <ColorSelector :colors=props.color_array v-if="props.numFields > 4" />
+            <ColorSelector :colors=props.color_array v-if="props.numFields > 4" />
+        </div>
+        <div class="field-groups">
+            <ColorSelector :colors=props.color_array v-if="props.numFields > 6" />
+            <ColorSelector :colors=props.color_array v-if="props.numFields > 6" />
+        </div>
+    </div>
 </template>
 
 <script setup lang="ts">
-    import ColorSelector from './ColorSelector.vue';
-    const props = defineProps(["color_array", "picked"])
+import ColorSelector from './simple-components/ColorSelector.vue';
+const props = defineProps(["color_array", "numFields"])
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@/styles/base.scss";
 
-    .highlight-blue-background {
-        background-color: $highlight-blue;
-        border-color: $highlight-blue;
-    }
+.blue-container {
+    background-color: $highlight-blue;
+    border-color: $highlight-blue;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+}
 
-    .space-between {
-        justify-content: space-between;
-    }
+.text {
+    margin: auto;
+    padding: 1em;
+}
 
-    .margin {
-  margin: 1em;
+.field-groups {
+    display: flex;
+    flex-direction: row;
 }
 </style>
