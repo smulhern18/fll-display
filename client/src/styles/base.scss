@@ -1,0 +1,36 @@
+// Colors
+$silver: #b8b9bbff;
+$standard-black: #141414ff;
+$maroon: #97212bff;
+$cool-black: #0d1b2aff;
+$base-blue: #1b263bff;
+$mid-blue: #415a77ff;
+$highlight-blue: #778da9ff;
+$white-silver: #e0e1ddff;
+$offwhite: #fdf1e2;
+
+// Fonts
+
+
+
+// Classes
+.no-margin {
+    margin: 0;
+}
+
+.header {
+    background-color: $maroon;
+    color: $silver;
+    height: 15%;
+    width: 100vw;
+}
+
+.right-align {
+    margin-left: auto; 
+    margin-right: 0;
+}
+
+h1 {
+    color:$silver;
+    font-size: 1.25em;
+}
